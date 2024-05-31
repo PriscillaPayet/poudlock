@@ -46,7 +46,7 @@ let app = {
 
             // je génère un nombre aléatoire pour sélectionner une maison
             
-            let randomNumber = Math.floor(Math.random() * (3 - 0) + 0);
+            let randomNumber = Math.floor(Math.random() * 4);
             console.log(randomNumber);
             let divImage = document.querySelector(".speech_container");
 
