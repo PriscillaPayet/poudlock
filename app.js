@@ -52,11 +52,27 @@ let app = {
             }
 
             let houseImg = document.createElement("img")
+
+            //si 8 caractères, maison maxopus
             if (nameField.length === 8){
                 console.log("contient 8caractères");
                 houseImg.src = "images/maxopus.png";
-            } else {
-            houseImg.src="images/lustrix.png";
+            } 
+            
+            else if (nameField.startsWith("L") || nameField.charAt(nameField.length - 1) === "x") {
+                console.log("commence par L ou se termine par x");
+                houseImg.src = "images/lustrix.png";
+
+            }
+
+            else if (nameField.length % 5 === 0 ||  nameField.length % 3 === 0) {
+                console.log("multiple de 5 ou de 3");
+                houseImg.src = "images/anthorvus.png";
+
+            }
+            
+            else {
+            houseImg.src="images/darioptera.png";
             }
             divImage.appendChild(houseImg); 
             userNameField.value = "";
