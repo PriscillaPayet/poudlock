@@ -23,7 +23,7 @@ let app = {
     handleSubmit: function(event){
         //je bloque le rafraichissement
         event.preventDefault();
-        //je sémectionne le champs 
+        //je sélectionne le champs 
         const userNameField = document.querySelector(".name");
         //je récupère la valeur soumise
         const nameField = userNameField.value; 
@@ -36,12 +36,26 @@ let app = {
         else {
             //let speech = document.querySelector(".speech_container");
             let divSpeech = document.querySelector(".speech");
-            divSpeech.remove();
-            console.log("texte supprimé?");
+
+            //je vérifie si la div existe
+            if (divSpeech) {
+                divSpeech.remove();
+                //console.log("texte supprimé?");
+            }
+           
+
+            // je génère un nombre aléatoire pour sélectionner une maison
             
             let randomNumber = Math.floor(Math.random() * (3 - 0) + 0);
             console.log(randomNumber);
             let divImage = document.querySelector(".speech_container");
+
+            //je vérifie si une img est déjà présente, si oui je la supprime
+            let existingHouseImg = divImage.querySelector("img");
+            if (existingHouseImg) {
+                existingHouseImg.remove();
+            }
+
             let houseImg = document.createElement("img");
             divImage.appendChild(houseImg); 
         
@@ -57,6 +71,8 @@ let app = {
             else {
              houseImg.src = "images/maxopus.png";
            }
+           // je vide le champ de texte
+           userNameField.value = "";
         }   
         
     },
