@@ -40,14 +40,9 @@ let app = {
             //je vérifie si la div existe
             if (divSpeech) {
                 divSpeech.remove();
-                //console.log("texte supprimé?");
+                console.log("texte supprimé");
             }
-           
 
-            // je génère un nombre aléatoire pour sélectionner une maison
-            
-            let randomNumber = Math.floor(Math.random() * 4);
-            console.log(randomNumber);
             let divImage = document.querySelector(".speech_container");
 
             //je vérifie si une img est déjà présente, si oui je la supprime
@@ -56,31 +51,19 @@ let app = {
                 existingHouseImg.remove();
             }
 
-            let houseImg = document.createElement("img");
-            divImage.appendChild(houseImg); 
-        
-            if (randomNumber == 0){
-            houseImg.src="images/anthorvus.png";
-            }
-            else if (randomNumber == 1){
-            houseImg.src="images/darioptera.png";
-            }
-            else if (randomNumber == 2){
+            let houseImg = document.createElement("img")
+            if (nameField.length === 8){
+                console.log("contient 8caractères");
+                houseImg.src = "images/maxopus.png";
+            } else {
             houseImg.src="images/lustrix.png";
             }
-            else {
-             houseImg.src = "images/maxopus.png";
-           }
-           // je vide le champ de texte
-           userNameField.value = "";
+            divImage.appendChild(houseImg); 
+            userNameField.value = "";
         }   
         
     },
-    
-
-
-    
-    
+      
 }
 // Quand la page est entièrement chargée, on exécute la méthode init située dans l'object app.
 document.addEventListener('DOMContentLoaded', app.init);
